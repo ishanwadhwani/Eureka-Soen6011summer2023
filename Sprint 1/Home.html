@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navbar</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        function showRegistrationPage() {
+          document.getElementById("home-page").style.display = "none";
+          document.getElementById("registration-page").style.display = "block";
+        }
+      </script>
+</head>
+<body>
+    <div id="home-page">
+        <nav class="navbar">
+            <ul class="nav-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><button id="signin-signup-button" onclick="showRegistrationPage()">Sign In / Sign Up</button></li>
+            </ul>
+          </nav>
+      </div>
+      
+      <div id="registration-page" style="display: none;">
+        <form class="registration-form" onsubmit="register(event)">
+            <h2>Registration</h2>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Register</button>
+          </form>
+          
+          <!-- Login Form -->
+          <form class="login-form" onsubmit="login(event)">
+            <h2>Login</h2>
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" name="login-email" required>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="login-password" required>
+            </div>
+            <button type="submit">Login</button>
+          </form>
+          
+          <script>
+            function register(event) {
+              event.preventDefault();
+              window.location.href = "home.html";
+            }
+          
+            function login(event) {
+              event.preventDefault();
+              window.location.href = "home.html";
+            }
+          </script>
+      </div>
+    
+
+</body>
+<script>
+    function register(event) {
+      event.preventDefault();
+      const registrationSuccessful = true; 
+  
+      if (registrationSuccessful) {
+        alert("Registration successful!");
+        window.location.href = "Home.html";
+      } else {
+        alert("Registration failed. Please try again.");
+      }
+    }
+    function login(event) {
+        event.preventDefault();
+
+        const loginSuccessful = true; 
+    
+        if (loginSuccessful) {
+          alert("Login successful!");
+              window.location.href = "Home.html";
+        } else {
+          alert("Invalid email or password. Please try again.");
+        }
+      }
+      const isLoggedIn = false; 
+        const signinSignupButton = document.getElementById("signin-signup-button");
+        if (isLoggedIn) {
+            signinSignupButton.remove();
+  }
+  </script>
+</html>
